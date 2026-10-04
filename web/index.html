@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5CR1PT3R5</title>
+  <meta name="description" content="Live view of your Claude agents at work.">
+  <meta name="theme-color" content="#151a20">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="5CR1PT3R5">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#team-h">Skip to the team list</a>
+  <header class="topbar">
+    <h1>5CR1PT3R5</h1>
+    <p id="demo-banner" class="demo-banner" hidden></p>
+    <p id="stats" class="stats">Opening…</p>
+    <span id="conn" class="conn" role="status" data-state="connecting">Connecting…</span>
+  </header>
+
+  <main class="layout">
+    <section id="floor" class="floor" aria-label="Office floor" aria-busy="true">
+      <canvas id="office" role="img"
+        aria-label="Pixel-art office. Each agent sits in a room that shows what they are doing; the team list has the same information as text."></canvas>
+      <p id="floor-overlay" class="floor-overlay">Opening the office…</p>
+    </section>
+
+    <aside class="sidebar">
+      <form id="composer" class="composer" aria-labelledby="composer-h" novalidate>
+        <h2 id="composer-h">New task</h2>
+        <label class="field">
+          <span>Who should do it?</span>
+          <select name="agent"></select>
+        </label>
+        <label class="field">
+          <span>What needs to be done? <small>Plain English is fine.</small></span>
+          <textarea name="task" rows="4" required></textarea>
+        </label>
+        <div id="composer-attachments"></div>
+        <details class="options">
+          <summary>Options</summary>
+          <label class="field">
+            <span>Project folder <small>(optional; reuse a name to keep working in it)</small></span>
+            <input name="project" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. photo-renamer">
+          </label>
+          <label class="field">
+            <span>Model</span>
+            <select name="model">
+              <option value="">Agent’s default (cheapest that fits)</option>
+              <option value="haiku">Haiku: fastest, cheapest</option>
+              <option value="sonnet">Sonnet: stronger engineering</option>
+              <option value="opus">Opus: hardest problems</option>
+            </select>
+          </label>
+        </details>
+        <div class="form-row">
+          <button type="submit" class="primary">Send</button>
+          <span class="hint">Ctrl+Enter</span>
+        </div>
+        <p class="composer-status form-status" role="status"></p>
+      </form>
+      <section id="detail" class="detail" aria-labelledby="detail-h"></section>
+      <section class="team" aria-labelledby="team-h">
+        <h2 id="team-h" tabindex="-1">Team</h2>
+        <div id="roster"></div>
+      </section>
+    </aside>
+  </main>
+
+  <div id="announcer" class="sr-only" aria-live="polite"></div>
+</body>
+</html>

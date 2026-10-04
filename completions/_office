@@ -1,0 +1,63 @@
+#compdef office
+# zsh completion for 5CR1PT3R5. Installed by scripts/install.zsh (adds this folder to fpath).
+
+_office_agents() {
+  local -a agents
+  agents=(${(f)"$(office __complete agents 2>/dev/null)"})
+  _describe -t agents 'agent' agents
+}
+
+_office_jobs() {
+  local -a jobs
+  jobs=(${(f)"$(office __complete jobs 2>/dev/null)"})
+  _describe -t jobs 'job' jobs -V
+}
+
+_office() {
+  local -a commands
+  commands=(
+    'roster:who works here and what they are doing'
+    'assign:give one agent a job'
+    'delegate:let the Tech Lead split a big request across the team'
+    'ui:pixel-art office in your browser'
+    'board:live view of the whole office'
+    'status:job list, or the full card for one job'
+    'logs:what an agent did, step by step'
+    'reply:follow up with an agent on a finished job'
+    'cancel:stop a queued or running job'
+    'doctor:check that Claude Code and the shells are set up'
+    'help:show usage'
+  )
+
+  local -a job_opts
+  job_opts=(
+    '(-p --project)'{-p,--project}'[folder to work in]:project:_files -/'
+    '(-m --model)'{-m,--model}'[model tier]:model:(haiku sonnet opus)'
+    '(-b --budget)'{-b,--budget}'[spend cap in USD]:usd:'
+    '(-a --after)'{-a,--after}'[start after these jobs]:jobs:_office_jobs'
+  )
+
+  if (( CURRENT == 2 )); then
+    _describe -t commands 'office command' commands
+    return
+  fi
+
+  case ${words[2]} in
+    assign)
+      if (( CURRENT == 3 )); then _office_agents; else _arguments -s $job_opts '*:task:'; fi ;;
+    delegate)
+      _arguments -s $job_opts '*:request:' ;;
+    status)
+      _arguments '--all[include all finished jobs]' '--json[machine-readable output]' '1:job:_office_jobs' ;;
+    logs)
+      _arguments '(-f --follow)'{-f,--follow}'[keep following]' '1:job:_office_jobs' ;;
+    reply)
+      _arguments '(-m --model)'{-m,--model}'[model tier]:model:(haiku sonnet opus)' '1:job:_office_jobs' '*:message:' ;;
+    cancel)
+      _arguments '1:job:_office_jobs' ;;
+    ui)
+      _arguments '--port[port to listen on]:port:' "--no-open[don't open a browser]" ;;
+  esac
+}
+
+_office "$@"

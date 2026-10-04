@@ -1,0 +1,27 @@
+{
+  "name": "5cr1pt3r5",
+  "version": "1.1.0",
+  "description": "A pixel-art office of 25 Claude Code agents that write code and scripts for you. Installable web app, with a live board to track them.",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "office": "bin/office.mjs"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "office": "node bin/office.mjs",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test",
+    "demo": "node scripts/build-demo.ts --serve",
+    "build:demo": "node scripts/build-demo.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  },
+  "license": "MIT",
+  "author": "Ryan M. Hernandez"
+}
