@@ -5,7 +5,7 @@ specialist for every major language. Tell any of them what you need in plain Eng
 browser or from PowerShell or zsh. Each one writes the code in its own folder while you watch its
 plan, current step and spend live.
 
-**[▶ Try the live demo](https://GITHUB_USER.github.io/5CR1PT3R5/)**: a simulated office in your browser. Give the agents tasks and watch them plan, work and hand off. Nothing really runs.
+**[▶ Try the live demo](https://RyanMH24.github.io/5CR1PT3R5/)**: a simulated office in your browser. Give the agents tasks and watch them plan, work and hand off. Nothing really runs.
 
 [Architecture](ARCHITECTURE.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [MIT license](LICENSE)
 

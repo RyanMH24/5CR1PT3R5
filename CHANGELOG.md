@@ -18,7 +18,7 @@ All notable changes to this project are listed here. The format follows [Keep a 
 - The top bar wraps on narrow screens instead of crowding.
 - The composer's example tasks moved to `web/js/examples.js`, shared with the demo.
 
-## [1.0.0] - 2026-10-02
+## 1.0.0 - 2026-10-02 (before this repository)
 
 ### Added
 
@@ -29,5 +29,4 @@ All notable changes to this project are listed here. The format follows [Keep a 
 - Sandboxed agents: a folder per task, per-agent command allowlists, `git push` and `npm publish` always denied, a script runner, spend caps and timeouts.
 - Desktop launchers for Windows and macOS.
 
-[1.1.0]: https://github.com/GITHUB_USER/5CR1PT3R5/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/GITHUB_USER/5CR1PT3R5/releases/tag/v1.0.0
+[1.1.0]: https://github.com/RyanMH24/5CR1PT3R5/releases/tag/v1.1.0
