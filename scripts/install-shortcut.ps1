@@ -27,7 +27,7 @@ if ($PSCmdlet.ShouldProcess($path, 'Create shortcut')) {
     $shortcut.Arguments = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Minimized -File `"$launcher`""
     $shortcut.WorkingDirectory = Split-Path -Parent $PSScriptRoot
     $shortcut.Description = 'Open 5CR1PT3R5 (starts the local host if needed)'
-    $shortcut.IconLocation = Join-Path $env:SystemRoot 'System32\shell32.dll,18'
+    $shortcut.IconLocation = Join-Path $PSScriptRoot 'windows\5CR1PT3R5.ico'
     $shortcut.Save()
     Write-Host "Created $path" -ForegroundColor Green
 }

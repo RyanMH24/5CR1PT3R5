@@ -6,7 +6,7 @@
  *
  * --repo (or DEMO_REPO_URL) adds a "Get the code" link; --serve previews the build on 127.0.0.1.
  */
-import { cpSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, cpSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
@@ -35,10 +35,27 @@ const indexPath = join(out, 'index.html');
 const html = readFileSync(indexPath, 'utf8');
 const marker = '<html lang="en">';
 if (!html.includes(marker)) throw new Error(`web/index.html no longer starts with ${marker}; update build-demo.ts`);
+const description = 'Interactive demo of 5CR1PT3R5: a pixel-art office of 25 Claude Code agents. Simulated; no agent really runs.';
+
+// Link previews (Slack, LinkedIn, X…) need an absolute image URL, so the card is only added when
+// --repo is a GitHub repo and the Pages address can be worked out from it.
+copyFileSync(join(root, 'brand', 'banner-dark.png'), join(out, 'og-image.png'));
+const github = /^https:\/\/github\.com\/([\w.-]+)\/([\w.-]+?)\/?$/.exec(repo);
+const site = github ? `https://${github[1].toLowerCase()}.github.io/${github[2]}/` : '';
+const card = site ? [
+  '<meta property="og:type" content="website">',
+  '<meta property="og:title" content="5CR1PT3R5">',
+  `<meta property="og:description" content="${description}">`,
+  `<meta property="og:url" content="${site}">`,
+  `<meta property="og:image" content="${site}og-image.png">`,
+  '<meta property="og:image:width" content="1200">',
+  '<meta property="og:image:height" content="630">',
+  '<meta name="twitter:card" content="summary_large_image">',
+].map((tag) => `\n  ${tag}`).join('') : '';
+
 writeFileSync(indexPath, html
   .replace(marker, `<html lang="en" data-mode="demo"${repo ? ` data-repo="${repo}"` : ''}>`)
-  .replace(/<meta name="description" content="[^"]*">/,
-    '<meta name="description" content="Interactive demo of 5CR1PT3R5: a pixel-art office of 25 Claude Code agents. Simulated; no agent really runs.">'));
+  .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${description}">${card}`));
 
 // The real page gets the team from the server; the demo gets it from the same roster at build time.
 const agents = ROSTER.map(({ id, name, title, model, specialty, team, budgetUsd }) => ({ id, name, title, model, specialty, team, budgetUsd }));

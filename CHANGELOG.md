@@ -2,6 +2,13 @@
 
 All notable changes to this project are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- **New logo.** The `>5_` mark replaces the generic monitor icon everywhere: the app's favicon (now an SVG, with the PNG as a fallback), install icons, the macOS app and the Windows desktop shortcut. The README opens with the wordmark, in a light and a dark version that follow GitHub's theme. The source files are in `brand/`.
+- The public demo has a link-preview card, so a shared link shows the banner.
+
 ## [1.1.0] - 2026-10-03
 
 ### Added

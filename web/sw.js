@@ -3,12 +3,12 @@
  * edits to web/ show up on the next load, and the cache is only a fallback. Live data (/api/)
  * is never cached, so an offline page says it can't reach the office rather than showing old jobs.
  */
-const CACHE = 'office-shell-v1';
+const CACHE = 'office-shell-v2';
 const SHELL = [
   './', 'index.html', 'styles.css', 'manifest.webmanifest',
   'js/main.js', 'js/api.js', 'js/attachments.js', 'js/composer.js', 'js/demo.js', 'js/director.js', 'js/examples.js', 'js/map.js',
   'js/mode.js', 'js/panel.js', 'js/pathfinding.js', 'js/renderer.js', 'js/sprites.js', 'js/wander.js',
-  'icons/icon-192.png', 'icons/favicon-32.png',
+  'icons/icon-192.png', 'icons/favicon-32.png', 'icons/favicon.svg',
 ];
 const API = new URL('api/', self.registration.scope).pathname;
 
