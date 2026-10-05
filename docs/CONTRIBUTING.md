@@ -2,7 +2,7 @@
 
 Thanks for taking a look. 5CR1PT3R5 is a personal project, shared so people can read the code and try the demo. **It doesn't accept pull requests or feature requests.**
 
-You're welcome to **fork it** and make it your own under the [MIT license](LICENSE). The rest of this page is for you if you do.
+You're welcome to **fork it** and make it your own under the [MIT license](../LICENSE). The rest of this page is for you if you do.
 
 - Found a security problem? See [SECURITY.md](SECURITY.md). Please report it privately.
 - Want to see how it works? Start with [ARCHITECTURE.md](ARCHITECTURE.md).
@@ -39,7 +39,7 @@ These keep the codebase small and readable. Follow them in your fork if you'd li
 
 ## Making the office your own
 
-- **Floor plan:** [`web/js/map.js`](web/js/map.js) holds the rooms, furniture, seats and desks as pure data. A test checks that every seat can still be reached.
-- **Characters:** replace `drawCharacter` in [`web/js/sprites.js`](web/js/sprites.js).
-- **Furniture:** one function per type in the `DRAW` table in [`web/js/renderer.js`](web/js/renderer.js).
-- **The team:** agents, models, budgets, tools and allowlists are all in [`src/roster.ts`](src/roster.ts). The demo picks up changes automatically, because its roster is generated from this file.
+- **Floor plan:** [`web/js/map.js`](../web/js/map.js) holds the rooms, furniture, seats and desks as pure data. A test checks that every seat can still be reached.
+- **Characters:** replace `drawCharacter` in [`web/js/sprites.js`](../web/js/sprites.js).
+- **Furniture:** one function per type in the `DRAW` table in [`web/js/renderer.js`](../web/js/renderer.js).
+- **The team:** agents, models, budgets, tools and allowlists are all in [`src/roster.ts`](../src/roster.ts). The demo picks up changes automatically, because its roster is generated from this file.

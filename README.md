@@ -12,7 +12,7 @@ plan, current step and spend live.
 
 **[▶ Try the live demo](https://RyanMH24.github.io/5CR1PT3R5/)**: a simulated office in your browser. Give the agents tasks and watch them plan, work and hand off. Nothing really runs.
 
-[Architecture](ARCHITECTURE.md) · [Security](SECURITY.md) · [Changelog](CHANGELOG.md) · [Contributing](CONTRIBUTING.md) · [MIT license](LICENSE)
+[Architecture](docs/ARCHITECTURE.md) · [Security](docs/SECURITY.md) · [Changelog](docs/CHANGELOG.md) · [Contributing](docs/CONTRIBUTING.md) · [MIT license](LICENSE)
 
 ```
  5CR1PT3R5  2 working · 1 queued · 9 idle · spent today $0.31
@@ -98,7 +98,7 @@ tailscale serve --bg http://127.0.0.1:4777          # prints https://<pc-name>.<
 # restart office ui (or the desktop shortcut) so it picks the variable up
 ```
 
-On a Mac, put `export OFFICE_ALLOWED_ORIGINS=https://<mac-name>.<tailnet>.ts.net` in `~/.zshrc` instead. Only devices signed in to your tailnet can open that address. Use `serve`, **never** `funnel`: funnel would put the office on the public internet. **▶ Present** opens projects on the PC's own `127.0.0.1`, so use it from the PC. See [SECURITY.md](SECURITY.md).
+On a Mac, put `export OFFICE_ALLOWED_ORIGINS=https://<mac-name>.<tailnet>.ts.net` in `~/.zshrc` instead. Only devices signed in to your tailnet can open that address. Use `serve`, **never** `funnel`: funnel would put the office on the public internet. **▶ Present** opens projects on the PC's own `127.0.0.1`, so use it from the PC. See [SECURITY.md](docs/SECURITY.md).
 
 **Give work in plain English.** Use the **New task** box. Pick who should do it, or choose *Ava decides* to have the Tech Lead split a bigger project across the team, then describe what you need the way you'd say it out loud, e.g. *"make me a script that renames my photos by the date they were taken"*. Click an agent on the floor to point the box at them. When a job finishes, its card has a **Follow up** box: the agent keeps the context and the folder, so *"add a --dry-run option"* just works. Running jobs have a **Stop** button.
 
@@ -211,7 +211,7 @@ npm run demo       # build the simulated demo into dist/demo and preview it
 
 The TypeScript runs directly on Node (built-in type stripping), with no build step and no runtime dependencies.
 
-**The demo** is the same page with [`web/js/demo.js`](web/js/demo.js) standing in for the host. It simulates jobs on the real scheduler's rules, and its team is generated from `src/roster.ts` at build time. Every push to `main` deploys it to GitHub Pages ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)); turn this on once under *Settings → Pages → Source: GitHub Actions*. For how it all fits together, see [ARCHITECTURE.md](ARCHITECTURE.md).
+**The demo** is the same page with [`web/js/demo.js`](web/js/demo.js) standing in for the host. It simulates jobs on the real scheduler's rules, and its team is generated from `src/roster.ts` at build time. Every push to `main` deploys it to GitHub Pages ([`.github/workflows/pages.yml`](.github/workflows/pages.yml)); turn this on once under *Settings → Pages → Source: GitHub Actions*. For how it all fits together, see [ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 | Variable | Default | Purpose |
 |---|---|---|

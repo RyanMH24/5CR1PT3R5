@@ -8,6 +8,7 @@ All notable changes to this project are listed here. The format follows [Keep a 
 
 - **New logo.** The `>5_` mark replaces the generic monitor icon everywhere: the app's favicon (now an SVG, with the PNG as a fallback), install icons, the macOS app and the Windows desktop shortcut. The README opens with the wordmark, in a light and a dark version that follow GitHub's theme. The source files are in `brand/`.
 - The public demo has a link-preview card, so a shared link shows the banner.
+- The project docs (`ARCHITECTURE.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`) moved to `docs/`. `README.md` stays at the root so GitHub shows it on the repo page.
 
 ## [1.1.0] - 2026-10-03
 

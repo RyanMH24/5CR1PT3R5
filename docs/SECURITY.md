@@ -43,9 +43,9 @@ By default nothing but the page on the same computer can send work. If you set `
 Each agent runs `claude -p` inside its own task folder:
 
 - File tools are confined to that folder. Reviewers (lead, security, QA) can also read the other agents' folders in `Agents Work`.
-- Shell commands must match the agent's allowlist in [`src/roster.ts`](src/roster.ts). Anything else is denied automatically, never left waiting for approval.
+- Shell commands must match the agent's allowlist in [`src/roster.ts`](../src/roster.ts). Anything else is denied automatically, never left waiting for approval.
 - `git push`, `git remote`, `npm publish`, `npm login` and `npm adduser` are always denied.
-- Scripts are checked and run through [`src/run-script.ts`](src/run-script.ts). It runs only files inside the task folder, with a timeout.
+- Scripts are checked and run through [`src/run-script.ts`](../src/run-script.ts). It runs only files inside the task folder, with a timeout.
 - Each job has a hard spend cap (`--max-budget-usd`) and a time limit (`OFFICE_JOB_TIMEOUT_MIN`, 45 minutes by default).
 
 **What this does not do:** the allowlist limits which programs an agent can *start*. It is not an operating-system sandbox. An allowed tool such as `node`, `python` or `npm` can still run any code, and that code runs as you. **Review what agents build before you run it outside their folder,** and don't give them tasks involving secrets you wouldn't paste into a chat.
@@ -60,7 +60,7 @@ Images are checked by their bytes, not their file name: PNG, JPEG, GIF, WebP, AV
 
 ### The public demo
 
-The GitHub Pages demo is static files only. Its office is simulated in the browser ([`web/js/demo.js`](web/js/demo.js)): it has no server and stores nothing, and what visitors type never leaves their browser. It can't reach anyone's office host.
+The GitHub Pages demo is static files only. Its office is simulated in the browser ([`web/js/demo.js`](../web/js/demo.js)): it has no server and stores nothing, and what visitors type never leaves their browser. It can't reach anyone's office host.
 
 ### Local data
 
