@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Rajdhani:wght@500;600&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: transparent; }
+  .banner {
+    box-sizing: border-box;
+    width: 1200px; height: 300px;
+    border-radius: 28px;
+    border: 2px solid rgba(198, 255, 0, 0.35);
+    background:
+      radial-gradient(ellipse 60% 90% at 50% 0%, rgba(198, 255, 0, 0.14), transparent 70%),
+      linear-gradient(rgba(198, 255, 0, 0.06) 1px, transparent 1px) 0 0 / 32px 32px,
+      linear-gradient(90deg, rgba(198, 255, 0, 0.06) 1px, transparent 1px) 0 0 / 32px 32px,
+      #05070d;
+    display: flex; align-items: center; justify-content: center; gap: 44px;
+    overflow: hidden;
+  }
+  svg { width: 150px; height: 150px; filter: drop-shadow(0 0 18px rgba(198, 255, 0, 0.5)); }
+  .word {
+    font-family: "Orbitron", sans-serif; font-weight: 800;
+    font-size: 92px; letter-spacing: 0.04em; line-height: 1;
+    color: #c6ff00;
+    text-shadow: 0 0 6px rgba(198, 255, 0, 0.85), 0 0 28px rgba(198, 255, 0, 0.5);
+  }
+  .tag {
+    margin-top: 18px;
+    font-family: "Rajdhani", sans-serif; font-weight: 600;
+    font-size: 30px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #7b93ac;
+  }
+  .tag b { color: #22d3ee; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <svg viewBox="0 0 40 40">
+      <defs>
+        <linearGradient id="face" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#efffb0" />
+          <stop offset="55%" stop-color="#c6ff00" />
+          <stop offset="100%" stop-color="#5f7a00" />
+        </linearGradient>
+      </defs>
+      <rect x="1.5" y="1.5" width="37" height="37" rx="9" fill="#0c121e" stroke="url(#face)" stroke-width="2" />
+      <polyline points="8.5,14 13,19.5 8.5,25" fill="none" stroke="#c6ff00" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="20.5" y="25.2" text-anchor="middle" font-family="Orbitron" font-weight="800" font-size="14.5" fill="#c6ff00">5</text>
+      <rect x="26.5" y="23" width="6" height="2.4" rx="1.2" fill="#c6ff00" />
+    </svg>
+    <div>
+      <div class="word">5CR1PT3R5</div>
+      <div class="tag"><b>$</b> 25 AI Agents · Plain English In, Code Out</div>
+    </div>
+  </div>
+</body>
+</html>

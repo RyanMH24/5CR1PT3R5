@@ -1,9 +1,6 @@
-<h1>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="brand/wordmark-on-dark.svg">
-    <img src="brand/wordmark-on-light.svg" alt="5CR1PT3R5" width="440">
-  </picture>
-</h1>
+<p align="center">
+  <img src="brand/readme-banner.png" alt="5CR1PT3R5: 25 AI agents, plain English in, code out" width="800">
+</p>
 
 A personal office of 25 AI agents built on [Claude Code](https://claude.com/claude-code): leads, engineers, and one
 specialist for every major language. Tell any of them what you need in plain English, from the
